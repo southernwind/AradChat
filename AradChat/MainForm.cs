@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace AradChat {
@@ -9,6 +10,8 @@ namespace AradChat {
 		internal MainForm() {
 			InitializeComponent();
 			this.cmbCaptcheMethod.SelectedIndex = 0;
+			LoadSettings();
+			Application.ApplicationExit += Application_ApplicationExit;
 		}
 
 		private bool _timerFlag;
@@ -49,6 +52,26 @@ namespace AradChat {
 			}
 			var html = await hc.Navigate( uploadUrl, dPost );
 			this.rtb2.Text = html;
+		}
+
+
+		/// <summary>
+		/// アプリケーション終了時、設定を保存する。
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Application_ApplicationExit( object sender, EventArgs e ) {
+			SaveSettings();
+			Properties.Settings.Default.Save();
+		}
+
+		private void SaveSettings() {
+			Properties.Settings.Default.cmbCaptcheMethod = this.cmbCaptcheMethod.SelectedIndex;
+
+		}
+
+		private void LoadSettings() {
+			this.cmbCaptcheMethod.SelectedIndex = Properties.Settings.Default.cmbCaptcheMethod;
 		}
 	}
 }

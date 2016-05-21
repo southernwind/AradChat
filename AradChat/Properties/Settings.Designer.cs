@@ -46,5 +46,29 @@ namespace AradChat.Properties {
                 this["uploadUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public decimal nudInterval {
+            get {
+                return ((decimal)(this["nudInterval"]));
+            }
+            set {
+                this["nudInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int cmbCaptcheMethod {
+            get {
+                return ((int)(this["cmbCaptcheMethod"]));
+            }
+            set {
+                this["cmbCaptcheMethod"] = value;
+            }
+        }
     }
 }

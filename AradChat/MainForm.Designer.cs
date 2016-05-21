@@ -32,13 +32,13 @@
 			this.rtb2 = new System.Windows.Forms.RichTextBox();
 			this.splitContainer4 = new System.Windows.Forms.SplitContainer();
 			this.pb = new System.Windows.Forms.PictureBox();
+			this.txtUrl = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.cmbCaptcheMethod = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.nudInterval = new System.Windows.Forms.NumericUpDown();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.label3 = new System.Windows.Forms.Label();
-			this.txtUrl = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -180,6 +180,24 @@
 			this.pb.TabIndex = 0;
 			this.pb.TabStop = false;
 			// 
+			// txtUrl
+			// 
+			this.txtUrl.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AradChat.Properties.Settings.Default, "uploadUrl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.txtUrl.Location = new System.Drawing.Point(85, 88);
+			this.txtUrl.Name = "txtUrl";
+			this.txtUrl.Size = new System.Drawing.Size(228, 19);
+			this.txtUrl.TabIndex = 5;
+			this.txtUrl.Text = global::AradChat.Properties.Settings.Default.uploadUrl;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(26, 92);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(27, 12);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "URL";
+			// 
 			// cmbCaptcheMethod
 			// 
 			this.cmbCaptcheMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -212,6 +230,7 @@
 			// 
 			// nudInterval
 			// 
+			this.nudInterval.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::AradChat.Properties.Settings.Default, "nudInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.nudInterval.DecimalPlaces = 1;
 			this.nudInterval.Location = new System.Drawing.Point(85, 21);
 			this.nudInterval.Maximum = new decimal(new int[] {
@@ -227,32 +246,12 @@
 			this.nudInterval.Name = "nudInterval";
 			this.nudInterval.Size = new System.Drawing.Size(50, 19);
 			this.nudInterval.TabIndex = 0;
-			this.nudInterval.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+			this.nudInterval.Value = global::AradChat.Properties.Settings.Default.nudInterval;
 			// 
 			// timer1
 			// 
 			this.timer1.Interval = 5000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(26, 92);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(27, 12);
-			this.label3.TabIndex = 4;
-			this.label3.Text = "URL";
-			// 
-			// txtUrl
-			// 
-			this.txtUrl.Location = new System.Drawing.Point(85, 88);
-			this.txtUrl.Name = "txtUrl";
-			this.txtUrl.Size = new System.Drawing.Size(228, 19);
-			this.txtUrl.TabIndex = 5;
 			// 
 			// MainForm
 			// 

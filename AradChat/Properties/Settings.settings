@@ -8,5 +8,11 @@
     <Setting Name="uploadUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://example.com/</Value>
     </Setting>
+    <Setting Name="nudInterval" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="cmbCaptcheMethod" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
