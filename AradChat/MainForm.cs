@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace AradChat {
@@ -35,14 +34,23 @@ namespace AradChat {
 
 		private async void SendLog() {
 			var bmp = Arad.Client.GetChatScreenShot(this.cmbCaptcheMethod.SelectedIndex);
+
+			//メガホン
 			var megaphone = new Arad.ChatWindow.Megaphone( bmp );
 			this.pb.Image = megaphone.image;
 			var log = megaphone.GetLog();
-			this.richTextBox1.Text = "";
+
+			//一般
+			var general = new Arad.ChatWindow.General( bmp );
+			this.pb2.Image = general.image;
+			var generalLog = general.GetLog();
+
 			var hc = new Hc();
 			var uploadUrl = this.txtUrl.Text;
 			var dPost = new Dictionary<string, string>();
+
 			var index = 0;
+			this.richTextBox1.Text = "";
 			foreach( var row in log.Where( row => row.name != "" ) ) {
 				this.richTextBox1.Text += "[ Ch." + row.channel + " ] [" + row.name + "] : " + row.detail + Environment.NewLine + Environment.NewLine;
 				dPost.Add( "chat[" + index + "][ch]", row.channel.ToString() );
@@ -50,8 +58,20 @@ namespace AradChat {
 				dPost.Add( "chat[" + index + "][detail]", row.detail );
 				index++;
 			}
+
+			this.richTextBox2.Text = "";
+			index = 0;
+			foreach( var row in generalLog.Where( row => row.name != "" ) ) {
+				this.richTextBox2.Text += "[" + row.name + "] : " + row.detail + Environment.NewLine + Environment.NewLine;
+				dPost.Add( "general[" + index + "][name]", row.name );
+				dPost.Add( "general[" + index + "][detail]", row.detail );
+				index++;
+			}
+
 			var html = await hc.Navigate( uploadUrl, dPost );
 			this.rtb2.Text = html;
+
+
 		}
 
 

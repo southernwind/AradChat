@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Arad\ChatWindow\ChatLog.cs" />
     <Compile Include="Arad\ChatWindow\FontColor.cs" />
+    <Compile Include="Arad\ChatWindow\General.cs" />
     <Compile Include="Arad\ChatWindow\Megaphone.cs" />
     <Compile Include="Arad\Client.cs" />
     <Compile Include="Font.cs" />

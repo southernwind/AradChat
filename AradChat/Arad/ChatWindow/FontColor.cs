@@ -16,6 +16,8 @@ namespace AradChat.Arad.ChatWindow {
 
 			public static Color megaphone = Color.FromArgb( 255, 240, 0 );
 			public static Color tab = Color.FromArgb( 255, 255, 184 );
+			public static Color general = Color.FromArgb( 255, 255, 255 );
+			public static Color guild = Color.FromArgb( 255, 76, 245 );
 
 		}
 
