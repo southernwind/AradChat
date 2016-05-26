@@ -79,7 +79,7 @@ namespace AradChat.Arad.ChatWindow {
 
 			var result = new List<MegaphoneChatLog>();
 			var temp = new MegaphoneChatLog();
-			for( var y = 4; y < this.image.Height; y += 16 ) {
+			for( var y = 4; y < this.image.Height - FONT_H; y += 16 ) {
 
 				//チャンネル表示を見つけるたびにチャット格納変数を切り替える
 

@@ -1,0 +1,18 @@
+diff a/AradChat/Arad/ChatWindow/Megaphone.cs b/AradChat/Arad/ChatWindow/Megaphone.cs	(rejected hunks)
+@@ -312,10 +312,15 @@
+ 							//è©²å½“0
+ 							break;
+ 						case 1:
++							if( res[0][0] == "ï¿£" ) {
++								bool f = true;
++							}
+ 							tempStr += res[0][0];
+ 							break;
+ 						default:
+-
++							if( LongestMatch( res, fontdataList.ToArray(), ref i ) == "ï¿£" ) {
++								bool f = true;
++							}
+ 							//è¤‡æ•°çµæžœãŒã‚ã£ãŸå ´åˆã®å‡¦ç†
+ 							tempStr += LongestMatch( res, fontdataList.ToArray(), ref i );
+ 							break;
