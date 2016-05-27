@@ -26,6 +26,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+			this.btnStop = new System.Windows.Forms.Button();
 			this.btnStart = new System.Windows.Forms.Button();
 			this.splitContainer3 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer6 = new System.Windows.Forms.SplitContainer();
@@ -102,6 +103,7 @@
 			// 
 			// splitContainer2.Panel1
 			// 
+			this.splitContainer2.Panel1.Controls.Add(this.btnStop);
 			this.splitContainer2.Panel1.Controls.Add(this.btnStart);
 			// 
 			// splitContainer2.Panel2
@@ -111,11 +113,22 @@
 			this.splitContainer2.SplitterDistance = 95;
 			this.splitContainer2.TabIndex = 0;
 			// 
+			// btnStop
+			// 
+			this.btnStop.Enabled = false;
+			this.btnStop.Location = new System.Drawing.Point(155, 30);
+			this.btnStop.Name = "btnStop";
+			this.btnStop.Size = new System.Drawing.Size(116, 45);
+			this.btnStop.TabIndex = 1;
+			this.btnStop.Text = "STOP";
+			this.btnStop.UseVisualStyleBackColor = true;
+			this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+			// 
 			// btnStart
 			// 
-			this.btnStart.Location = new System.Drawing.Point(56, 30);
+			this.btnStart.Location = new System.Drawing.Point(12, 30);
 			this.btnStart.Name = "btnStart";
-			this.btnStart.Size = new System.Drawing.Size(170, 45);
+			this.btnStart.Size = new System.Drawing.Size(116, 45);
 			this.btnStart.TabIndex = 0;
 			this.btnStart.Text = "START";
 			this.btnStart.UseVisualStyleBackColor = true;
@@ -386,6 +399,7 @@
 		private System.Windows.Forms.PictureBox pb2;
 		private System.Windows.Forms.SplitContainer splitContainer6;
 		private System.Windows.Forms.RichTextBox richTextBox2;
+		private System.Windows.Forms.Button btnStop;
 	}
 }
 

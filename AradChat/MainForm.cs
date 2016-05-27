@@ -13,19 +13,18 @@ namespace AradChat {
 			Application.ApplicationExit += Application_ApplicationExit;
 		}
 
-		private bool _timerFlag;
 		private void btnStart_Click( object sender, EventArgs e ) {
 			this.timer1.Interval = (int)(this.nudInterval.Value * 1000);
-			if( !this._timerFlag ) {
-				this.timer1.Start();
-				this._timerFlag = true;
-				this.btnStart.Text = "STOP";
-				SendLog();
-			} else {
-				this.timer1.Stop();
-				this._timerFlag = false;
-				this.btnStart.Text = "START";
-			}
+			this.btnStop.Enabled = true;
+			this.btnStart.Enabled = false;
+			this.timer1.Start();
+			SendLog();
+		}
+		private void btnStop_Click( object sender, EventArgs e ) {
+			this.btnStart.Enabled = true;
+			this.btnStop.Enabled = false;
+			this.timer1.Stop();
+
 		}
 
 		private void timer1_Tick( object sender, EventArgs e ) {
@@ -93,5 +92,6 @@ namespace AradChat {
 		private void LoadSettings() {
 			this.cmbCaptcheMethod.SelectedIndex = Properties.Settings.Default.cmbCaptcheMethod;
 		}
+
 	}
 }
