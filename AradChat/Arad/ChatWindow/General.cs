@@ -83,11 +83,6 @@ namespace AradChat.Arad.ChatWindow {
 			var result = new List<GeneralChatLog>();
 			var temp = new GeneralChatLog();
 			for( var y = 4; y < this.image.Height; y += 16 ) {
-
-				//チャンネル表示を見つけるたびにチャット格納変数を切り替える
-
-				var color = this.image.GetPixel( 8, y + 1 );
-
 				var img = new Bitmap( W, FONT_H );
 				using( var g = Graphics.FromImage( img ) ) {
 					g.DrawImage( this.image, new Rectangle( 0, 0, img.Width, img.Height ), new Rectangle( 0, y, img.Width, img.Height ), GraphicsUnit.Pixel );
