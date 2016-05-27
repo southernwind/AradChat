@@ -52,7 +52,7 @@ namespace AradChat {
 			var index = 0;
 			this.richTextBox1.Text = "";
 			foreach( var row in log.Where( row => row.name != "" ) ) {
-				this.richTextBox1.Text += "[ Ch." + row.channel + " ] [" + row.name + "] : " + row.detail + Environment.NewLine + Environment.NewLine;
+				this.richTextBox1.Text += string.Join( Environment.NewLine, row.raw ) + Environment.NewLine;
 				dPost.Add( "chat[" + index + "][ch]", row.channel.ToString() );
 				dPost.Add( "chat[" + index + "][name]", row.name );
 				dPost.Add( "chat[" + index + "][detail]", row.detail );
@@ -62,7 +62,7 @@ namespace AradChat {
 			this.richTextBox2.Text = "";
 			index = 0;
 			foreach( var row in generalLog.Where( row => row.name != "" ) ) {
-				this.richTextBox2.Text += "[" + row.name + "] : " + row.detail + Environment.NewLine + Environment.NewLine;
+				this.richTextBox2.Text += string.Join( Environment.NewLine, row.raw ) + Environment.NewLine;
 				dPost.Add( "general[" + index + "][name]", row.name );
 				dPost.Add( "general[" + index + "][detail]", row.detail );
 				index++;

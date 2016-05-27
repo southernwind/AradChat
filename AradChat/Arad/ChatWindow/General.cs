@@ -93,9 +93,11 @@ namespace AradChat.Arad.ChatWindow {
 						result.Add( temp );
 					}
 					temp = new GeneralChatLog();
+					temp.raw.Add( tempstr );
 					temp.name += Regex.Replace( tempstr, " : .*$", "" ).Trim();
 					temp.detail += Regex.Replace( tempstr, "^.*? : ", "" ).Trim();
 				} else { //2行目以降
+					temp.raw.Add( tempstr );
 					temp.detail += tempstr.Trim();
 				}
 			}

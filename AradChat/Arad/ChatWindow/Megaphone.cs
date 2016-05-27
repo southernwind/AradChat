@@ -102,6 +102,7 @@ namespace AradChat.Arad.ChatWindow {
 						g.DrawImage( this.image, new Rectangle( 0, 0, img.Width, img.Height ), new Rectangle( 42, y, img.Width, img.Height ), GraphicsUnit.Pixel );
 					}
 					var tempstr = GetText( img );
+					temp.raw.Add( tempstr );
 					temp.name += Regex.Replace( tempstr, " : .*$", "" ).Trim();
 					temp.detail += Regex.Replace( tempstr, "^.*? : ", "" ).Trim();
 				} else {
@@ -111,6 +112,7 @@ namespace AradChat.Arad.ChatWindow {
 						g.DrawImage( this.image, new Rectangle( 0, 0, img.Width, img.Height ), new Rectangle( 0 , y, img.Width, img.Height ), GraphicsUnit.Pixel );
 					}
 					var tempstr = GetText( img );
+					temp.raw.Add( tempstr );
 					temp.detail += tempstr.Trim();
 				}
 			}
