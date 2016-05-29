@@ -61,7 +61,15 @@ namespace CreateFontDB {
 			var fonts = new Dictionary<char, string> {
 				{ 'I' ,"010000001000" +
 					   "011111111000" +
-					   "010000001000" }
+					   "010000001000" } ,
+				{ 'Ｖ' ,"001100000000" +
+						"000011100000" +
+						"000000011000" +
+						"000000000100" +
+						"000000011000" +
+						"000011100000" +
+						"001100000000" +
+						"010000000000" }
 			};
 			return ( from font in fonts where font.Key == letter select font.Value ).FirstOrDefault();
 		}
