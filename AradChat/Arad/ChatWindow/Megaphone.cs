@@ -53,6 +53,7 @@ namespace AradChat.Arad.ChatWindow {
 		}
 
 		internal Megaphone(Bitmap img) {
+			var imageHeight = H;
 			/* 切り取り位置検索 */
 			var targetY = 0;
 			for( var y = 0; y < img.Height - 6; y++ ) {
@@ -69,7 +70,27 @@ namespace AradChat.Arad.ChatWindow {
 				}
 			}
 
-			this.image = new Bitmap(W,H);
+			//画像の高さを決定
+			for( var endy = 0; endy < img.Height - 6; endy++ ) {
+				if( img.GetPixel( 34, endy ) != FontColor.Text.general &&
+					img.GetPixel( 34, endy + 1 ) == FontColor.Text.general &&
+					img.GetPixel( 34, endy + 2 ) == FontColor.Text.general &&
+					img.GetPixel( 34, endy + 3 ) != FontColor.Text.general &&
+					img.GetPixel( 34, endy + 4 ) == FontColor.Text.general &&
+					img.GetPixel( 34, endy + 5 ) != FontColor.Text.general &&
+					img.GetPixel( 34, endy + 6 ) == FontColor.Text.general &&
+					img.GetPixel( 34, endy + 7 ) != FontColor.Text.general &&
+					img.GetPixel( 34, endy + 8 ) == FontColor.Text.general &&
+					img.GetPixel( 34, endy + 9 ) != FontColor.Text.general &&
+					img.GetPixel( 34, endy + 10 ) != FontColor.Text.general &&
+					img.GetPixel( 34, endy + 11 ) == FontColor.Text.general
+												) {
+					imageHeight = endy - targetY - 15;
+					break;
+				}
+			}
+
+			this.image = new Bitmap( W, imageHeight );
 			using( var g = Graphics.FromImage( this.image ) ) {
 				g.DrawImage( img, new Rectangle( 0, 0, this.image.Width, this.image.Height ), new Rectangle( X, targetY, this.image.Width, this.image.Height ), GraphicsUnit.Pixel );
 			}
