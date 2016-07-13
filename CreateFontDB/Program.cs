@@ -32,11 +32,26 @@ namespace CreateFontDB {
 							}
 						}
 						fontdata = Regex.Replace( fontdata, "^(0{12})+|(0{12})+$", "" );
-						command.CommandText = "INSERT INTO fonts (char,fontdata) VALUES ('" + letter + "','" + fontdata + "')";
+						command.CommandText = "INSERT INTO fonts (char,fontdata) VALUES (?,?)";
+
+						var paramChar = new SQLiteParameter {
+							DbType=System.Data.DbType.String,
+							Value = letter
+						};
+						var paramFontdata = new SQLiteParameter {
+							DbType = System.Data.DbType.String,
+							Value = fontdata
+						};
+						command.Parameters.Clear();
+						command.Parameters.Add( paramChar );
+						command.Parameters.Add( paramFontdata );
+
+						command.Prepare();
+
 						try {
 							command.ExecuteNonQuery();
 						} catch( SQLiteException ) {
-							Console.WriteLine( command.CommandText );
+							Console.WriteLine( "sql={0} letter={1} fontdata={2}", command.CommandText, letter, fontdata );
 						}
 					}
 				}
